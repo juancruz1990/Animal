@@ -10,38 +10,89 @@ package testjava;
  * @author fdman
  */
 public class Animal {
-    int ojos;
-    int patas;
-    int dientes;
-    float peso;
-    String nombre;
-    char color;
-    boolean salta;
-    char sexo;
+    private int ojos;
+    private int patas;
+    private int dientes;
+    private float peso;
+    private String nombre;
+    private char color;
+    private boolean salta;
+    private char sexo;
+    private int vida;
+    private int ataque;
+    private String estado;
     
-    /***
-     * Este es el constructor de animal
-     * @param nombre de tipo cadena, necesario para darle nombre 
+
+	/***
+     * constructor de la clase animal sin parametros 
      */
-    public Animal(String nombre){
+	public Animal(){
+		
+		
+	}
+	/***
+	 *constructor de la clase animal con parametros 
+	 *
+	 * @param vida del animal de tipo integer
+	 * @param ataque del animal de tipo integer
+	 * @param sexo del animal de tipo char
+	 * @param nombre del animal de tipo String
+	 */
+    public Animal(int vida , int ataque, char sexo,String nombre){
         System.out.println("Naci soy una animal");
-        this.nombre = nombre;
+        this.vida = vida;
+        this.ataque = ataque;
+        this.sexo = sexo;
+        this.nombre=nombre;
+        this.estado= "vivo";
         
     }
-    
+     /**
+      * metodo comer de la clase animal con parametros
+      * @param otro del tipo animal
+      */
     public void comer(Animal otro){
        
     }
     
-    /***
-     * Devuel el nombre del animal
-     * @return 
-     */
+
+    public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public int getAtaque() {
+		return ataque;
+	}
+
+	public void setAtaque(int ataque) {
+		this.ataque = ataque;
+	}
+    
     public String getNombre(){
         return this.nombre;
     }
     
-    public void setNombre(String nuevoNombre){
+    public int getVida() {
+		return vida;
+	}
+
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
+
+	public void modificarVida(int salud){
+		this.vida = vida-salud;
+	}
+	
+	public void setColor(char color) {
+		this.color = color;
+	}
+
+	public void setNombre(String nuevoNombre){
         this.nombre = nuevoNombre;
     }
     

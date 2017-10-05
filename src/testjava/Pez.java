@@ -5,32 +5,63 @@
  */
 package testjava;
 
-/**
- *
- * @author fdman
- */
+
 public class Pez extends Animal{
-    boolean esVertebrado;
-    boolean tieneBranquias;
-    
-    /***
-     * Este es el contructor de pez
-     * @param nombre de tipo cadena
-     * @param esVertebrado de tipo logico, que define si tiene espinas o no
-     * @param tieneBranquias 
-     */
-    public Pez(String nombre, boolean esVertebrado, boolean tieneBranquias) {
-        super(nombre);
-        System.out.println("Naci soy un pez");
-        this.tieneBranquias = tieneBranquias;
-        this.esVertebrado = esVertebrado;
-    }
-    
-   public void comer(Animal otro){
-       System.out.println("No puedo comer a " + otro.getNombre() + " porque yo soy pez y el es "+ otro.getClass());
-   }
-    
    
-    
-    
+	
+	/**
+	 * Constructor que genera un pez con
+	 * @param vida del animal de tipo integer
+	 * @param ataque del animal de tipo integer
+	 * @param sexo del animal de tipo char
+	 * @param nombre del animal de tipo String
+	 */ 
+	public Pez(int vida , int ataque,char sexo,String nombre){
+		super(vida,ataque,sexo,nombre);
+	
+    }
+	
+	 /**
+     * metodo pelear de la clase pez con parametros
+     * @param otro del tipo animal
+     */
+	public void pelear(Animal otro){
+		
+		if (otro instanceof Pez){
+			if(otro.getSexo() == this.getSexo()){
+				this.setVida(this.getVida() - otro.getAtaque());
+				otro.setVida(otro.getVida() - this.getAtaque());
+			}
+		}
+		else{
+			while ((otro.getVida() > 0) &&  (this.getVida()> 0)){
+				this.setVida(this.getVida() - otro.getAtaque());
+				if (this.getVida() > 0 ){
+					otro.setVida(otro.getVida() - this.getAtaque());
+				}
+				
+			}
+		}
+		
+	}
+	
+	/**
+	 * metodo comer de la clase pez
+	 */
+	public void comer(Animal otro){
+		if (otro.getVida() > 0)  {
+			this.pelear(otro);
+		}
+		if (this.getVida() <= 0){
+			this.setEstado("muerto");
+			System.out.println("el animal "+otro.getNombre()+"  se comio a "+this.getNombre());
+		}
+
+		if (otro.getVida() <= 0){
+			otro.setEstado("muerto");
+			System.out.println("el animal "+this.getNombre()+"  se comio a "+otro.getNombre());
+		}
+			
+	}
+        
 }

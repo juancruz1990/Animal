@@ -10,34 +10,61 @@ package testjava;
  * @author fdman
  */
 public class Mamifero extends Animal{
-    int tiempoDeGestacion;
-    int cantidadMamas;
-    /***
+    private int tiempoDeGestacion;
+    private int cantidadMamas;
+    
+    
+    /**
      * Constructor que genera un mamifero con
-     * @param nombre
-     * @param tiempoDeGestacion
-     * @param cantMamas 
+     * @param vida del animal de tipo integer
+     * @param ataque del animal de tipo integer
+     * @param sexo del animal de tipo char
+     * @param nombre del animal de tipo String
+     */ 
+    	public Mamifero(int vida , int ataque,char sexo,String nombre){
+    		super(vida,ataque,sexo,nombre);
+    }
+    	
+    /**
+     * metodo pelear de la clase mamifero con parametros
+     * @param otro del tipo animal
      */
-    public Mamifero(String nombre, int tiempoDeGestacion, int cantMamas) {
-        super(nombre);
-        this.tiempoDeGestacion = tiempoDeGestacion;
-        this.cantidadMamas = cantMamas;
-    }
-    
-    public void comer(Animal otro){
-        System.out.println("Soy un mamifero");
-        
-        if (otro instanceof Pez){
-            System.out.println("Puedo comer peces");
-        }
-        if (otro instanceof Mamifero){
-            System.out.println("Tengo que pensarlo...");
-        }
-        if (otro instanceof Reptil){
-            System.out.println("Si puedo comer un reptil");
-        }
-    }
-    
-   
-    
+    	public void pelear(Animal otro){
+    		
+    		if (otro instanceof Pez){
+    			if(otro.getSexo() == this.getSexo()){
+    				this.setVida(this.getVida() - otro.getAtaque());
+    				otro.setVida(otro.getVida() - this.getAtaque());
+    			}
+    		}
+    		else{
+    			while ((otro.getVida() > 0) &&  (this.getVida()> 0)){
+    				this.setVida(this.getVida() - otro.getAtaque());
+    				if (this.getVida() > 0 ){
+    					otro.setVida(otro.getVida() - this.getAtaque());
+    				}
+    				
+    			}
+    		}
+    		
+    	}
+    	
+    	/**
+    	 * metodo comer de la clase mamifero
+    	 */
+    	public void comer(Animal otro){
+    		if (otro.getVida() > 0)  {
+    			this.pelear(otro);
+    		}
+    		if (this.getVida() <= 0){
+    			this.setEstado("muerto");
+    			System.out.println("el animal "+otro.getNombre()+"  se comio a "+this.getNombre());
+    		}
+
+    		if (otro.getVida() <= 0){
+    			otro.setEstado("muerto");
+    			System.out.println("el animal "+this.getNombre()+"  se comio a "+otro.getNombre());
+    		}
+    			
+    	}
 }
