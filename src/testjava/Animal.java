@@ -18,21 +18,37 @@ public class Animal {
     char color;
     boolean salta;
     char sexo;
+    int ataque;
+    int vida;
     
     /***
      * Este es el constructor de animal
      * @param nombre de tipo cadena, necesario para darle nombre 
      */
     public Animal(String nombre){
-        System.out.println("Naci soy una animal");
+        System.out.println("Naci soy un animal");
+        this.nombre = nombre;        
+    }
+    
+    public Animal(String nombre, int ataque){
         this.nombre = nombre;
-        
+        this.ataque= ataque;
+        this.vida= 100;    
     }
-    
+    /***
+     * codigo para comer un animal
+     * @param otro
+     */
     public void comer(Animal otro){
-       
+    	
     }
-    
+    /***
+     * codigo para que dos animales se peleen 
+     * @param otro
+     */
+    public void pelear(Animal otro){
+
+    }
     /***
      * Devuel el nombre del animal
      * @return 
@@ -96,6 +112,21 @@ public class Animal {
     public void setSexo(char sexo) {
         this.sexo = sexo;
     }
+	public int getAtaque() {
+		return ataque;
+	}
+	public void setAtaque(int ataque) {
+		this.ataque = ataque;
+	}
+	public int getVida() {
+		return vida;
+	}
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
+	public void setColor(char color) {
+		this.color = color;
+	}
     
     
 }
