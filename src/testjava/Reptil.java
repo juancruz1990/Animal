@@ -17,8 +17,8 @@ int cantidadHuevos;
      * @param nombre
      * @param cantidadHuevos 
      */
-    public Reptil(String nombre, int cantidadHuevos) {
-        super(nombre);
+    public Reptil( int cantidadHuevos) {
+        super();
         this.cantidadHuevos = cantidadHuevos;
     }
     
