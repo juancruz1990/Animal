@@ -18,6 +18,7 @@ public class Ave extends Animal {
 	/***
 	 * metodo que se ejecuta cuando se encuentran dos animales distintos y se pelean
 	 */
+	/*
 	public void pelear(Animal otro)
 	{
 		System.out.println("soy un ave feroz. Grrr");
@@ -34,9 +35,11 @@ public class Ave extends Animal {
 			}
 		}
 	}
-	/***
+	*/
+	/**
 	 * metodo que se utiliza cuando un animal se come a otro
 	 */
+	/*
 	public void comer(Animal otro){
 		//primero se llama a pelear
 		this.pelear(otro);
@@ -51,7 +54,7 @@ public class Ave extends Animal {
 		else{
 			System.out.println("he muerto en el intento y estas hablando con mi espiritu");
 		}
-	}
+	}*/
 }
 	
 	
