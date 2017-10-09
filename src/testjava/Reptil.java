@@ -22,6 +22,18 @@ int cantidadHuevos;
         this.cantidadHuevos = cantidadHuevos;
     }
     
-   
+    public void comer(Animal otro){
     
+        System.out.println("Soy un reptil");
+        
+        if (otro instanceof Pez){
+            System.out.println("Puedo comer peces");
+        }
+        if (otro instanceof Mamifero){
+            System.out.println("Puedo comer un mamifero");
+        }
+        if (otro instanceof Reptil){
+            System.out.println("Tengo que pensarlo...");
+        }
+    }
 }
