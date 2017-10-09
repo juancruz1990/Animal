@@ -5,35 +5,24 @@
  */
 package testjava;
 
-/**
- *
- * @author fdman
- */
 public class Reptil extends Animal{
-int cantidadHuevos;
    
-    /***
-     * 
-     * @param nombre
-     * @param cantidadHuevos 
-     */
-    public Reptil( int cantidadHuevos) {
-        super();
-        this.cantidadHuevos = cantidadHuevos;
-    }
-    
-    public void comer(Animal otro){
-    
-        System.out.println("Soy un reptil");
-        
-        if (otro instanceof Pez){
-            System.out.println("Puedo comer peces");
-        }
-        if (otro instanceof Mamifero){
-            System.out.println("Puedo comer un mamifero");
-        }
-        if (otro instanceof Reptil){
-            System.out.println("Tengo que pensarlo...");
-        }
-    }
+	
+	/**
+	 * Constructor que genera un reptil con
+	 * @param vida del animal de tipo integer
+	 * @param ataque del animal de tipo integer
+	 * @param sexo del animal de tipo char
+	 * @param nombre del animal de tipo String
+	 */ 
+
+	public Reptil(String nombre,int ataque) {
+		super(nombre,ataque);
+		this.setPatas(4);
+		this.setSalta(true);
+		this.setOjos(2);
+	}
+	 public Reptil(int vida , int ataque, char sexo,String nombre){
+		super (vida,ataque,sexo,nombre);
+	    }
 }

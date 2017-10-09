@@ -10,26 +10,39 @@ package testjava;
  * @author fdman
  */
 public class Animal {
-    private int ojos;
-    private int patas;
-    private int dientes;
-    private float peso;
-    private String nombre;
-    private char color;
-    private boolean salta;
-    private char sexo;
-    private int vida;
-    private int ataque;
-    private String estado;
+
+    int ojos;
+    int patas;
+    int dientes;
+    float peso;
+    String nombre;
+    char color;
+    boolean salta;
+    char sexo;
+    int ataque;
+    int vida;
+
     
 
 	/***
      * constructor de la clase animal sin parametros 
      */
-	public Animal(){
+
+    public Animal(String nombre){
+        System.out.println("Naci soy un animal");
+        this.nombre = nombre;        
+    }
+    /***
+     * contructor de la clase animal
+     * @param nombre
+     * @param ataque
+     */
+    public Animal(String nombre, int ataque){
+        this.nombre = nombre;
+        this.ataque= ataque;
+        this.vida= 100;    
+    }
 		
-		
-	}
 	/***
 	 *constructor de la clase animal con parametros 
 	 *
@@ -44,25 +57,52 @@ public class Animal {
         this.ataque = ataque;
         this.sexo = sexo;
         this.nombre=nombre;
-        this.estado= "vivo";
-        
+
     }
      /**
-      * metodo comer de la clase animal con parametros
+      * metodo comer de la clase animal, que intenta comer a otro animal
       * @param otro del tipo animal
       */
+
     public void comer(Animal otro){
-       
+		this.pelear(otro);
+		if (this.vida>=0){
+			if (otro.vida <= 0){
+				System.out.println("lo he comido");
+			}
+			else {
+				System.out.println("no he podido comerlo");
+			}
+		}
+		else{
+			System.out.println("he muerto en el intento y estas hablando con mi espiritu");
+		}
     }
-    
-
-    public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+    /***
+     * codigo para que dos animales se peleen 
+     * @param otro objeto de tipo animal
+     */
+    public void pelear(Animal otro){
+    	String Ab1, Ab2;
+    	Ab1=this.getClass().getSimpleName();
+    	Ab2=otro.getClass().getSimpleName();
+		if (Ab1.equals(Ab2)){
+			if (this.getSexo()== otro.getSexo()){
+				this.vida= this.vida - otro.getAtaque();
+				otro.vida= otro.vida - this.getAtaque();
+			}
+		}
+		else {
+			while (otro.vida>0 && this.vida>0){
+				this.vida= this.vida - otro.getAtaque();
+				otro.vida= otro.vida - this.getAtaque();
+			}
+		}
+    }
+    /***
+     * geterrs & setters
+     * @return
+     */
 
 	public int getAtaque() {
 		return ataque;
@@ -147,6 +187,6 @@ public class Animal {
     public void setSexo(char sexo) {
         this.sexo = sexo;
     }
-    
+
     
 }
