@@ -25,7 +25,7 @@ public class Pez extends Animal{
      * metodo pelear de la clase pez con parametros
      * @param otro del tipo animal
      */
-	public void pelear(Animal otro){
+/*	public void pelear(Animal otro){
 		
 		if (otro instanceof Pez){
 			if(otro.getSexo() == this.getSexo()){
@@ -43,12 +43,12 @@ public class Pez extends Animal{
 			}
 		}
 		
-	}
+	}*/
 	
 	/**
 	 * metodo comer de la clase pez
 	 */
-	public void comer(Animal otro){
+	/*public void comer(Animal otro){
 		if (otro.getVida() > 0)  {
 			this.pelear(otro);
 		}
@@ -62,6 +62,6 @@ public class Pez extends Animal{
 			System.out.println("el animal "+this.getNombre()+"  se comio a "+otro.getNombre());
 		}
 			
-	}
+	}*/
         
 }
