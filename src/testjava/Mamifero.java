@@ -10,8 +10,8 @@ package testjava;
  * @author fdman
  */
 public class Mamifero extends Animal{
-    private int tiempoDeGestacion;
-    private int cantidadMamas;
+    //private int tiempoDeGestacion;
+    //private int cantidadMamas;
     
     
     /**
@@ -21,50 +21,8 @@ public class Mamifero extends Animal{
      * @param sexo del animal de tipo char
      * @param nombre del animal de tipo String
      */ 
-    	public Mamifero(int vida , int ataque,char sexo,String nombre){
-    		super(vida,ataque,sexo,nombre);
-    }
-    	
-    /**
-     * metodo pelear de la clase mamifero con parametros
-     * @param otro del tipo animal
-     */
-    /*	public void pelear(Animal otro){
-    		
-    		if (otro instanceof Pez){
-    			if(otro.getSexo() == this.getSexo()){
-    				this.setVida(this.getVida() - otro.getAtaque());
-    				otro.setVida(otro.getVida() - this.getAtaque());
-    			}
-    		}
-    		else{
-    			while ((otro.getVida() > 0) &&  (this.getVida()> 0)){
-    				this.setVida(this.getVida() - otro.getAtaque());
-    				if (this.getVida() > 0 ){
-    					otro.setVida(otro.getVida() - this.getAtaque());
-    				}
-    				
-    			}
-    		}
-    		
-    	}*/
-    	
-    	/**
-    	 * metodo comer de la clase mamifero
-    	 */
-    /*	public void comer(Animal otro){
-    		if (otro.getVida() > 0)  {
-    			this.pelear(otro);
-    		}
-    		if (this.getVida() <= 0){
-    			this.setEstado("muerto");
-    			System.out.println("el animal "+otro.getNombre()+"  se comio a "+this.getNombre());
-    		}
 
-    		if (otro.getVida() <= 0){
-    			otro.setEstado("muerto");
-    			System.out.println("el animal "+this.getNombre()+"  se comio a "+otro.getNombre());
-    		}
-    			
-    	}*/
+   	 public Mamifero(int vida , int ataque, char sexo,String nombre){
+ 		super (vida,ataque,sexo,nombre);
+ 	    }
 }

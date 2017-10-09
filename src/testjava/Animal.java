@@ -32,21 +32,17 @@ public class Animal {
         System.out.println("Naci soy un animal");
         this.nombre = nombre;        
     }
-    
+    /***
+     * contructor de la clase animal
+     * @param nombre
+     * @param ataque
+     */
     public Animal(String nombre, int ataque){
         this.nombre = nombre;
         this.ataque= ataque;
         this.vida= 100;    
     }
-    /***
-     * codigo para comer un animal
-     * @param otro
-     */
-
-	public Animal(){
 		
-		
-	}
 	/***
 	 *constructor de la clase animal con parametros 
 	 *
@@ -64,7 +60,7 @@ public class Animal {
 
     }
      /**
-      * metodo comer de la clase animal con parametros
+      * metodo comer de la clase animal, que intenta comer a otro animal
       * @param otro del tipo animal
       */
 
@@ -84,7 +80,7 @@ public class Animal {
     }
     /***
      * codigo para que dos animales se peleen 
-     * @param otro
+     * @param otro objeto de tipo animal
      */
     public void pelear(Animal otro){
     	String Ab1, Ab2;
@@ -103,12 +99,10 @@ public class Animal {
 			}
 		}
     }
-
     /***
-     * Devuel el nombre del animal
-     * @return 
+     * geterrs & setters
+     * @return
      */
-
 
 	public int getAtaque() {
 		return ataque;
