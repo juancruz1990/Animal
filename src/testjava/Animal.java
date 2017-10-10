@@ -52,7 +52,7 @@ public class Animal {
 	 * @param nombre del animal de tipo String
 	 */
     public Animal(int vida , int ataque, char sexo,String nombre){
-        System.out.println("Naci soy una animal");
+        //System.out.println("Naci soy una animal");
         this.vida = vida;
         this.ataque = ataque;
         this.sexo = sexo;
@@ -65,17 +65,18 @@ public class Animal {
       */
 
     public void comer(Animal otro){
+    	System.out.println("the fight is comming");
 		this.pelear(otro);
 		if (this.vida>=0){
 			if (otro.vida <= 0){
-				System.out.println("lo he comido");
+				System.out.println(this.nombre+" comio a: "+otro.nombre);
 			}
 			else {
-				System.out.println("no he podido comerlo");
+				System.out.println(this.nombre+" no pudo comer a: "+otro.nombre);
 			}
 		}
 		else{
-			System.out.println("he muerto en el intento y estas hablando con mi espiritu");
+			System.out.println(this.nombre+" ha muerto intendo comer a: "+otro.nombre);
 		}
     }
     /***
@@ -86,16 +87,29 @@ public class Animal {
     	String Ab1, Ab2;
     	Ab1=this.getClass().getSimpleName();
     	Ab2=otro.getClass().getSimpleName();
+    	System.out.println(Ab1+ ": "+ this.nombre+ " vs "+ Ab2+ ": "+ otro.nombre);
 		if (Ab1.equals(Ab2)){
 			if (this.getSexo()== otro.getSexo()){
-				this.vida= this.vida - otro.getAtaque();
-				otro.vida= otro.vida - this.getAtaque();
+				if (otro.getVida()>0){
+					this.vida= this.vida - otro.getAtaque();
+					System.out.println(this.nombre+" recibe: "+ otro.getAtaque()+" daño, y su salud queda en: "+ this.vida);
+				}
+				if (this.getVida()>0){
+					otro.vida= otro.vida - this.getAtaque();
+					System.out.println(otro.nombre+" recibe: "+ this.getAtaque()+" daño, y su salud queda en: "+ otro.vida);
+				}
 			}
 		}
 		else {
 			while (otro.vida>0 && this.vida>0){
-				this.vida= this.vida - otro.getAtaque();
-				otro.vida= otro.vida - this.getAtaque();
+				if (otro.getVida()>0){
+					this.vida= this.vida - otro.getAtaque();
+					System.out.println(this.nombre+" recibe: "+ otro.getAtaque()+" daño, y su salud queda en: "+ this.vida);
+				}
+				if (this.getVida()>0){
+					otro.vida= otro.vida - this.getAtaque();
+					System.out.println(otro.nombre+" recibe: "+ this.getAtaque()+" daño, y su salud queda en: "+ otro.vida);
+				}
 			}
 		}
     }

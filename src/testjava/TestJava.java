@@ -49,11 +49,8 @@ public class TestJava {
 		int vida;
 		int ataque;
 		Animal p1;
-		for (int i=0 ; i<100 ; i++){
-			
-			
+		for (int i=0 ; i<10000 ; i++){
 			valor = r.nextInt(5) + 1;
-			System.out.println(valor);
 			if (r.nextInt(100) % 2 == 0){
 				sexo = 'f';
 			}
@@ -67,7 +64,7 @@ public class TestJava {
 				listaAnimales.add(p1);
 			}
 			if (valor == 2) {
-				p1= new Reptil(vida,ataque,sexo,"Juan"+r.nextInt(9999);
+				p1= new Reptil(vida,ataque,sexo,"Juan"+r.nextInt(9999));
 				listaAnimales.add(p1);
 			}
 			if (valor == 3) {
@@ -83,5 +80,29 @@ public class TestJava {
 				listaAnimales.add(p1);
 			}
 		}
+		int j=0, k=0;
+		while ((listaAnimales.size())>1){
+			do{
+				valor=r.nextInt(listaAnimales.size());
+			}while (valor==j);
+			System.out.println(j);
+			System.out.println(valor);
+			System.out.println(listaAnimales.size());
+			listaAnimales.get(j).comer(listaAnimales.get(valor));
+			k=0;
+			while (k<listaAnimales.size()){
+				if (listaAnimales.get(k).getVida()<=0){
+					listaAnimales.remove(k);
+				}
+				k++;
+			}
+			if (j<listaAnimales.size()-1){
+				j++;
+			}
+			else {
+				j=0;
+			}
+		}
+		System.out.println("termine de ejecutarme");
 	}
 }
